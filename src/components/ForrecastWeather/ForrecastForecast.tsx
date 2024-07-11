@@ -32,7 +32,7 @@ const HourlyForecast = () => {
 		<div
 			className={`${
 				isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'
-			} col-start-1 col-end-6 row-start-9 row-end-10 lg:col-start-4 lg:col-end-6 lg:row-start-2 lg:row-end-6 rounded-xl p-5`}>
+			} col-start-1 col-end-6 row-start-8 row-end-9 lg:col-start-4 lg:col-end-6 lg:row-start-2 lg:row-end-5 rounded-xl p-5`}>
 			<div className='flex space-x-8'>
 				{days.map((day: any, index: number) => (
 					<button
