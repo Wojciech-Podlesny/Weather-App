@@ -57,4 +57,3 @@ export const WeatherProvider = ({ children }: Props) => {
 
 	return <WeatherContext.Provider value={{ weatherData, setLocation, location }}>{children}</WeatherContext.Provider>
 }
-

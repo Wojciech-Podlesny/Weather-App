@@ -13,12 +13,10 @@ import HourlyForecast from '../components/ForrecastWeather/ForrecastForecast'
 import { Footer } from '../components/Footer/Footer'
 
 
-
-
 const Dashboard = () => {
 	return (
 		<div>
-			<div className='grid grid-cols-2 lg:grid-cols-5 gap-4'>
+			<div className='grid grid-cols-4 lg:grid-cols-5 gap-4'>
 				<Header />
 				<CurrentWeather />
 				<HourlyForecast />

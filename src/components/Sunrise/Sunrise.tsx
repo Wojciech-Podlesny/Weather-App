@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTheme } from '../../hooks/useTheme';
 import { useWeather } from '../../hooks/useWeather';
 import { SunriseSunset } from './SunriseSunset';
@@ -17,7 +16,7 @@ const Sunrise = () => {
 
             {weatherData && (
                 <div className='font-bold ml-4 mt-2'>
-                    <SunriseSunset sunrise={weatherData.sunrise} sunset={weatherData.sunset} />
+                    <SunriseSunset sunrise={weatherData.sunrise} sunset={weatherData.sunset} /> 
                 </div>
             )}
         </div>
