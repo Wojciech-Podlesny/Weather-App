@@ -12,7 +12,7 @@ const Sidebar = () => {
 		<nav
 			className={`${
 				isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'
-			} rounded-xl  mr-2 p-10 w-60 hidden lg:block mt-5 ml-5 mb-5`}>
+			} rounded-xl  mr-2 p-10 w-60 hidden lg:block mx-5 my-10`}>
 			<div className='flex justify-center items-center mb-6'>
 				<img className='w-16 h-16' src={Sun} alt="Sun" />
 			</div>

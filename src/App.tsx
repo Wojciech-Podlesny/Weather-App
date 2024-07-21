@@ -18,9 +18,9 @@ const App = () => {
 				<WeatherProvider>
 					<ThemeProvider>
 						<Router>
-							<div className='flex lg:m-2'>
+							<div className='flex'>
 								<Sidebar />
-								<div className='w-full'>
+								<div className='w-full m-5'>
 									<Suspense fallback={<div>Loading...</div>}>
 										<Routes>
 											<Route path='/' element={<Dashboard />} />
