@@ -11,6 +11,7 @@ import { Sunrise } from '../components/Sunrise/Sunrise'
 import { Precipitation } from '../components/Precipitation/Precipitation'
 import HourlyForecast from '../components/ForrecastWeather/ForrecastForecast'
 import { Footer } from '../components/Footer/Footer'
+import { WeatherOtherCities } from '../components/WeatherOtherCities/WeatherOtherCities'
 
 
 const Dashboard = () => {
@@ -30,6 +31,7 @@ const Dashboard = () => {
 				<Precipitation />
 				<Sunrise />
 				<Footer />
+				<WeatherOtherCities />
 			</div>
 		</div>
 	)

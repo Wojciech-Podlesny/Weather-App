@@ -30,7 +30,7 @@ const CurrentWeather = () => {
 					<DateTimeDisplay />
 				</div>
 				<div className='mt-4 sm:ml-4 md:ml-4 lg:ml-32'>
-					{/* <WeatherChart /> */}
+					<WeatherChart /> 
 				</div>
 			</div>
 		</div>

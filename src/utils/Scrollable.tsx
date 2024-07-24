@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useDraggable } from 'react-use-draggable-scroll';
 
-interface ScrollableListProps {
+type ScrollableListProps = {
     children: React.ReactNode;
 }
 

@@ -9,7 +9,7 @@ const Wind = () => {
     const { isDarkMode } = useTheme();
 
     return (
-        <div className={`bg-${isDarkMode ? 'gray-800 text-white' : 'white text-black'} rounded-xl col-start-3 col-end-6 row-start-6 row-end-7 lg:col-start-2 lg:col-end-3 lg:row-start-5 lg:row-end-6 p-4 my-4`}>
+        <div className={`bg-${isDarkMode ? 'gray-800 text-white' : 'white text-black'} rounded-xl col-start-3 col-end-6 row-start-6 row-end-7 lg:col-start-2 lg:col-end-3 lg:row-start-5 lg:row-end-6 p-4`}>
             <div className='flex items-center px-4 py-3'>
                 <LuWind className='ml-2' size={24} />
                 <h1 className='text-xl pl-2 font-semibold'>Wind</h1>

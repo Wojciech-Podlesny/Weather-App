@@ -36,7 +36,7 @@ const Sidebar = () => {
 					</Link>
 				</li>
 
-				<li className='mb-4 lg:hidden'>
+				<li className='mb-4'>
 					<Link to='/settings' className='hover:font-bold flex items-center transition-all duration-300'>
 						<SlSettings className='mr-2' />
 						Settings

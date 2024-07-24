@@ -35,7 +35,6 @@ export const WeatherProvider = ({ children }: Props) => {
 						pressure: data.current.pressure_mb,
 						uvIndex: data.current.uv,
 						precipitation: data.current.precip_mm,
-						feelsLike: data.current.feelslike_c,
 						airQuality: {
 							pm2_5: data.current.air_quality.pm2_5,
 							pm10: data.current.air_quality.pm10,
