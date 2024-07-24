@@ -1,6 +1,6 @@
 import { useTheme } from '../../hooks/useTheme';
 import { useWeather } from '../../hooks/useWeather';
-import { SunriseSunset } from './SunriseSunset';
+import { SunriseSunset } from '../ProgressBar/SunriseSunset';
 import { LuSun } from 'react-icons/lu';
 
 const Sunrise = () => {

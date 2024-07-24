@@ -19,8 +19,7 @@ const Settings = () => {
 				<div className='absolute top-2 right-8 p-5 lg:block hidden'>
 					<DarkModeButton />
 				</div>
-				<div className='hidden md:block'>{/* <h1>dvf</h1>  przedyskutować co tutaj ma być  */}
-					<h1>Settings</h1>
+				<div className='hidden md:block'>{/* <h1>.....</h1>  przedyskutować co tutaj ma być  */}
 				</div>
 			</div>
 			<div className='mx-5'>

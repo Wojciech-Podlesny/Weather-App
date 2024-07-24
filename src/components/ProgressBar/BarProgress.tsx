@@ -14,17 +14,17 @@ interface ProgressBarProps {
   value: number;
   maxValue: number;
   backgroundColor?: string;
-  // hoverBackgroundColor?: string;
+  hoverBackgroundColor?: string;
 }
 
-const UVIndexProgress: React.FC<ProgressBarProps> = ({ value, maxValue, backgroundColor = 'rgb(163 230 53)' }) => {
+const BarProgress: React.FC<ProgressBarProps> = ({ value, maxValue, backgroundColor = 'rgb(163 230 53)' }) => {
   const data = {
     labels: ['Value', ''],
     datasets: [
       {
         data: [value, maxValue - value],
         backgroundColor: [backgroundColor, '#e0e0e0'],
-        // hoverBackgroundColor: [hoverBackgroundColor, '#f5f5f5'],
+        hoverBackgroundColor: [backgroundColor, '#f5f5f5'],
         borderWidth: 1,
       },
     ],
@@ -42,4 +42,4 @@ const UVIndexProgress: React.FC<ProgressBarProps> = ({ value, maxValue, backgrou
   return <Doughnut data={data} options={options} width={150} height={150} />;
 };
 
-export { UVIndexProgress };
+export { BarProgress };
