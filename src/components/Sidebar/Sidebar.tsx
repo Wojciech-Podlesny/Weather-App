@@ -4,7 +4,7 @@ import { RxDashboard } from 'react-icons/rx'
 import { TbHeart } from 'react-icons/tb'
 import { LiaMap } from 'react-icons/lia'
 import { SlSettings } from 'react-icons/sl'
-import Sun from '../../assets/2682849_cloud_cloudy_day_forecast_sun_icon.svg'
+import Sun from '../../assets/icon.png'
 
 const Sidebar = () => {
 	const { isDarkMode } = useTheme()
@@ -14,9 +14,9 @@ const Sidebar = () => {
 				isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'
 			} rounded-xl  mr-2 p-10 w-60 hidden lg:block mx-5 my-10`}>
 			<div className='flex justify-center items-center mb-6'>
-				<img className='w-16 h-16' src={Sun} alt="Sun" />
+				<img className='w-20 h-20' src={Sun} alt="Sun" />
 			</div>
-			<ul>
+			<ul className='py-4'>
 				<li className='mb-4'>
 					<Link to='/' className='hover:font-bold flex items-center transition-all duration-300'>
 						<RxDashboard className='mr-2' />

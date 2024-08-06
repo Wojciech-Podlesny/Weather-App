@@ -1,6 +1,6 @@
 import { useTheme } from '../../hooks/useTheme'
 import { useState, useEffect } from 'react'
-import ScrollableList from '../../utils/Scrollable'
+import { ScrollableList } from '../../utils/ScrollableList'
 import { WeatherIcon } from '../../utils/WeatherIcon'
 import { useWeather } from '../../hooks/useWeather'
 import { convertTemperature } from '../../utils/ConvertTemperature'
@@ -18,11 +18,12 @@ type WeatherCities = {
 	}
 }
 
-const cities = ['Warsaw', 'Katowice', 'Rzeszów', 'Wroclaw', 'Gdansk']
+const cities = ['Warsaw', 'Katowice', 'Rzeszów', 'Wroclaw', 'Gdansk','Lublin','Bydgoszcz']
+
 
 const WeatherOtherCities = () => {
 	const { isDarkMode } = useTheme()
-	const [weather, setWeather] = useState<WeatherCities[]>([])
+	const [weatherForCities,setWeatherForCities] = useState<WeatherCities[]>([]) 
 	const { weatherData } = useWeather()
 	const { celcius } = useUnit()
 
@@ -31,12 +32,12 @@ const WeatherOtherCities = () => {
 			try {
 				const data = await Promise.all(
 					cities.map(city =>
-						fetch(`https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${city}`).then(
-							response => response.json()
-						)
+						fetch(`https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${city}`)
+							.then(response => response.json())
+							.catch(error => console.error(error))
 					)
 				)
-				setWeather(data)
+				setWeatherForCities(data)
 			} catch (error) {
 				console.error(error)
 			}
@@ -47,23 +48,23 @@ const WeatherOtherCities = () => {
 
 	return (
 		<div
-			className={`rounded-xl col-start-1 col-end-6 lg:col-start-4 lg:col-end-6 lg:row-start-5 lg:row-end-6 ${
+			className={`rounded-xl col-start-1 col-end-6 row-start-8 row-end-9 lg:row-start-6 lg:row-end-7 ${
 				isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'
 			}`}>
 			<div className='mx-10 my-6'>
-				<h1 className='text-xl font-semibold'>Weather Other Cities</h1>
+				<h1 className='text-2xl font-semibold'>Weather Other Cities</h1>
 			</div>
 			<ScrollableList>
 				<div className='flex justify-center gap-6 lg:mt-6 mt-5 mb-12'>
-					{weather.map((data, index) => (
+					{weatherForCities.map((data, index) => (
 						<div className={`m-2 p-4 w-40 sm:w-48 lg:w-56 rounded-lg`} key={index}>
-							<h2 className='text-lg font-bold mb-2 text-center'>{data.location.name}</h2>
-							<h2 className='text-xl mb-1 text-center'>
-								{convertTemperature(data.current.temp_c, celcius).toFixed(1)} {celcius ? '°C' : '°F'}
-							</h2>
+							<h2 className='text-2xl font-semibold  mb-2 text-center'>{data.location.name}</h2>
 							<div className='flex items-center justify-center mb-2'>
 								<WeatherIcon conditionCode={weatherData?.code}></WeatherIcon>
 							</div>
+							<h2 className='text-xl mb-1 text-center'>
+								{convertTemperature(data.current.temp_c, celcius).toFixed(1)} {celcius ? '°C' : '°F'}
+							</h2>
 						</div>
 					))}
 				</div>

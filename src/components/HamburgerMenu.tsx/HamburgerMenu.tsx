@@ -8,7 +8,7 @@ import { TbHeart } from 'react-icons/tb'
 import { LiaMap } from 'react-icons/lia'
 import { SlSettings } from 'react-icons/sl'
 import { FiMenu, FiX } from 'react-icons/fi'
-import sun from '../../assets/2682849_cloud_cloudy_day_forecast_sun_icon.svg'
+import sun from '../../assets/icon.png'
 import { convertTemperature } from '../../utils/ConvertTemperature'
 
 const HamburgerMenu = () => {

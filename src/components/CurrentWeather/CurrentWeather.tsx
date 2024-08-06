@@ -16,13 +16,13 @@ const CurrentWeather = () => {
 				isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'
 			} rounded-xl p-10 col-start-1 col-end-6 row-start-2 row-end-3 lg:col-end-4`}>
 			<div className='flex justify-between'>
-				<p className='text-xl font-semibold'>Current Weather</p>
+				<p className='text-2xl font-semibold'>Current Weather</p>
 				<div className='hidden lg:block'>
 					<ButtonToogleUnit />
 				</div>
 			</div>
 
-			<div className='flex flex-col justify-between sm:flex-row md:flex-row lg:flex-row'>
+			<div className='flex flex-col justify-between sm:flex-row md:flex-row lg:flex-row '>
 				<div className='flex flex-col sm:items-start md:items-start lg:items-start'>
 					<WeatherIcon conditionCode={weatherData?.code} />
 					<Temperature />
@@ -30,7 +30,7 @@ const CurrentWeather = () => {
 					<DateTimeDisplay />
 				</div>
 				<div className='mt-4 sm:ml-4 md:ml-4 lg:ml-32'>
-					<WeatherChart /> 
+					{/* <WeatherChart />  */}
 				</div>
 			</div>
 		</div>

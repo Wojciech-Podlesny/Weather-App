@@ -50,7 +50,7 @@ const LocationSearch = ({ isMobileSearchOpen, onSearchClose, theme }: LocationSe
         }
       )
     } else {
-      console.error('Geolocation is not supported by this browser.')
+      // console.error('Geolocation is not supported by this browser.')
       setIsFetching(false)
       showErrorToast('Geolocation is not supported by this browser.')
     }
@@ -77,7 +77,7 @@ const LocationSearch = ({ isMobileSearchOpen, onSearchClose, theme }: LocationSe
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
           placeholder='Search location'
-          className='placeholder-gray-500 pr-10 pl-16 w-full py-2 text-base rounded-2xl border-2 border-black'
+          className='placeholder-gray-500 pr-10 pl-16 w-full py-2 text-base rounded-2xl border-2 border-black text-black'
         />
       </div>
       <button
