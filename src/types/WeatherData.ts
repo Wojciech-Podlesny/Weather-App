@@ -38,6 +38,7 @@ export type WeatherContextType = {
 	weatherData: WeatherData | null
 	location: string
 	setLocation: (location: string) => void
+	error:string | null
 }
 
 export type HourlyForecast = {

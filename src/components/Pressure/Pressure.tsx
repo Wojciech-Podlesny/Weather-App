@@ -9,7 +9,7 @@ const Pressure = () => {
     return (
         <div className={`${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'} rounded-xl col-start-3 col-end-6 row-start-3 row-end-4 lg:col-start-2 lg:col-end-3 p-4`}>
             <div className='flex items-center px-4 py-3'>
-                <LuGauge className='ml-2' size={24} />
+                <LuGauge className='flex-shrink-0' size={24} />
                 <h1 className='text-xl pl-2 font-semibold'>Pressure</h1>
             </div>
 

@@ -52,7 +52,7 @@ const WeatherOtherCities = () => {
 				isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'
 			}`}>
 			<div className='mx-10 my-6'>
-				<h1 className='text-2xl font-semibold'>Weather Other Cities</h1>
+				<h1 className='text-xl font-semibold'>Weather Other Cities</h1>
 			</div>
 			<ScrollableList>
 				<div className='flex justify-center gap-6 lg:mt-6 mt-5 mb-12'>

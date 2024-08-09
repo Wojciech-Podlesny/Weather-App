@@ -10,7 +10,7 @@ import { RxCross2 } from 'react-icons/rx'
 
 const Header = () => {
 	const { isDarkMode } = useTheme()
-	const { location } = useWeather()
+	const { location, error } = useWeather()
 	const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false)
 
 	const toggleSearch = () => {
@@ -20,8 +20,6 @@ const Header = () => {
 	const closeSearch = () => {
 		setIsSearchOpen(false)
 	}
-
-	
 
 	return (
 		<header
@@ -34,7 +32,7 @@ const Header = () => {
 				</div>
 				<div className='flex items-center flex-grow ml-5'>
 					<MdOutlineLocationOn />
-					<p className='m-2'>{location}</p>
+					{!error && <p className='m-2'>{location}</p>}
 				</div>
 				<div className='hidden lg:flex flex-grow'>
 					<LocationSearch theme={isDarkMode ? 'dark' : 'light'} isMobileSearchOpen={false} onSearchClose={closeSearch} />

@@ -1,22 +1,23 @@
-import { useRef } from 'react'
-import { useDraggable } from 'react-use-draggable-scroll'
+import { useRef } from 'react';
+import { useDraggable } from 'react-use-draggable-scroll';
 
 type ScrollableListProps = {
-	children: React.ReactNode
-}
+    children: React.ReactNode;
+};
 
 const ScrollableList = ({ children }: ScrollableListProps) => {
-	const scrollRef = useRef<HTMLUListElement>(null)
-	const { events } = useDraggable(scrollRef as React.MutableRefObject<HTMLUListElement>)
+    const scrollRef = useRef<HTMLUListElement>(null);
+    const { events } = useDraggable(scrollRef as React.MutableRefObject<HTMLUListElement>);
 
-	return (
-		<ul
-			className='mt-4 flex lg:flex-col overflow-x-auto lg:overflow-x-hidden lg:overflow-y-auto cursor-grab hide-scrollbar'
-			{...events}
-			ref={scrollRef}>
-			{children}
-		</ul>
-	)
-}
+    return (
+        <ul
+            className='mt-4 flex lg:flex-col overflow-x-auto lg:overflow-x-hidden lg:overflow-y-scroll cursor-grab hide-scrollbar'
+            {...events}
+            ref={scrollRef}
+        >
+            {children}
+        </ul>
+    );
+};
 
-export { ScrollableList }
+export { ScrollableList };
