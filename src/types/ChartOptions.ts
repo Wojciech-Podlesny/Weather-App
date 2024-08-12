@@ -3,21 +3,29 @@ export type ChartOptions = {
 		x: {
 			grid: {
 				display: boolean
-			},
-			ticks : {
+			}
+			ticks: {
 				font: {
-					size:number;
+					size: number
 				}
+				color: string
+			}
+			border: {
+				color: string
 			}
 		}
 		y: {
 			grid: {
 				display: boolean
-			},
-			ticks : {
+			}
+			ticks: {
 				font: {
-					size:number;
+					size: number
 				}
+				color: string
+			}
+			border: {
+				color: string
 			}
 			beginAtZero: boolean
 		}
@@ -26,11 +34,8 @@ export type ChartOptions = {
 		legend: {
 			display: boolean
 			position: 'top' | 'bottom' | 'left' | 'right' | 'chartArea'
-			
 		}
 	}
-
-
 }
 
 export type ChartData = {
@@ -43,5 +48,7 @@ export type ChartData = {
 		borderColor: string
 		borderWidth: number
 		tension: number
+		pointRadius: number
+		pointHoverRadius: number
 	}[]
 }

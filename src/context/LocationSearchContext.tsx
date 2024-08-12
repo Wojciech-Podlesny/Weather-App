@@ -16,7 +16,7 @@ export const WeatherProvider = ({ children }: Props) => {
     useEffect(() => {
         if (location) {
             fetch(
-                `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&aqi=yes&q=${location}&days=5&alerts=yes`
+                `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&aqi=yes&q=${location}&days=5`
             )
             .then(response => {
                 if (!response.ok) {
@@ -24,6 +24,7 @@ export const WeatherProvider = ({ children }: Props) => {
                 }
                 return response.json();
             })
+
             .then(data => {
                 if (data.error) {
                     setError(data.error.message);
