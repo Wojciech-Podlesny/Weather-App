@@ -10,10 +10,10 @@ const UVIndex = () => {
 		<div
 			className={`${
 				isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'
-			} rounded-xl col-start-1 col-end-3 row-start-6 row-end-7 lg:col-start-1 lg:col-end-2 lg:row-start-5 lg:row-end-6 p-4 h-32`}>
-			<div className='flex items-center px-4 py-3'>
+			} rounded-xl col-start-1 col-end-3 row-start-6 row-end-7 lg:col-start-1 lg:col-end-2 lg:row-start-5 lg:row-end-6 p-4`}>
+			<div className='flex items-center'>
 				<LuSun className='flex-shrink-0' size={24} />
-				<h1 className='text-xl pl-2 font-semibold'>UV</h1>
+				<h1 className='text-lg pl-2 font-semibold'>UV</h1>
 			</div>
 			{weatherData && (
 				 <div className='font-bold ml-6 mt-2'>

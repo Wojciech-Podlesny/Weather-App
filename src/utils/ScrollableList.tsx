@@ -11,7 +11,7 @@ const ScrollableList = ({ children }: ScrollableListProps) => {
 
     return (
         <ul
-            className='mt-4 flex lg:flex-col overflow-x-auto lg:overflow-x-hidden lg:overflow-y-scroll cursor-grab hide-scrollbar'
+            className='mt-4 flex lg:flex-col overflow-x-auto lg:overflow-x-hidden cursor-grab hide-scrollbar'
             {...events}
             ref={scrollRef}
         >

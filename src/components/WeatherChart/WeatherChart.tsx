@@ -17,8 +17,9 @@ const WeatherChart = () => {
 	useEffect(() => {
 		if (weatherData) {
 			const processWeatherData = (data: WeatherData) => {
-				const labels = data.forecast.forecastday.map(day => day.date)
+				const labels = ['Monday', 'Tomorrow', 'After Tomorrow']
 				const temperatures = data.forecast.forecastday.map(day => convertTemperature(day.day.maxtemp_c, celcius))
+
 				return { labels, temperatures }
 			}
 
@@ -29,18 +30,18 @@ const WeatherChart = () => {
 					{
 						label: `Temperature (${celcius ? '°C' : '°F'})`,
 						data: temperatures,
-						fill: false,
-						backgroundColor: 'rgb(0,0,205)',
-						borderColor: 'rgb(0,0,205)',
+						fill: true,
+						backgroundColor: isDarkMode ? 'rgb(240,248, 255)' : 'rgb(240,248, 255)',
+						borderColor: isDarkMode ? 'rgb(240,248, 255)' : 'rgb(240,248, 255)',
 						borderWidth: 2.1,
-						tension: 0.4,
+						tension: 0.8,
 						pointRadius: 0,
 						pointHoverRadius: 0,
 					},
 				],
 			})
 		}
-	}, [weatherData, celcius])
+	}, [weatherData, celcius, isDarkMode])
 
 	const options: ChartOptions = {
 		scales: {
@@ -52,10 +53,10 @@ const WeatherChart = () => {
 					font: {
 						size: 12,
 					},
-					color: 'rgb(0,0,205)',
+					color: isDarkMode ? 'rgb(255,255,255)' : 'rgb(0,0,0)',
 				},
 				border: {
-					color: 'rgb(0,0,205)',
+					color: isDarkMode ? 'rgb(255,255,255)' : 'rgb(0,0,0)',
 				},
 			},
 			y: {
@@ -66,10 +67,10 @@ const WeatherChart = () => {
 					font: {
 						size: 12,
 					},
-					color: 'rgb(0,0,205)',
+					color: isDarkMode ? 'rgb(255,255,255)' : 'rgb(0,0,0)',
 				},
 				border: {
-					color: 'rgb(0,0,205)',
+					color: isDarkMode ? 'rgb(255,255,255)' : 'rgb(0,0,0)',
 				},
 				beginAtZero: false,
 			},
@@ -87,11 +88,13 @@ const WeatherChart = () => {
 	}
 
 	return (
-		<div
-			className={`${
-				isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'
-			} p-5 rounded-xl col-start-1 col-end-6 lg:col-end-4 row-start-6 row-end-7`}>
-			<h1 className='text-center font-semibold text-xl text-blue-800 mt-4'>Temperature</h1>
+		<div>
+			<h1
+				className={`${
+					isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'
+				} text-center font-semibold text-xl`}>
+				Temperature
+			</h1>
 			<Line data={chartData} options={options} />
 		</div>
 	)

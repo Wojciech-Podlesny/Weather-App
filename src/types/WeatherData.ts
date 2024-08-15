@@ -7,7 +7,7 @@ export type WeatherData = {
 	pressure: number
 	visibility: number
 	uvIndex: number
-	precipitation: number
+	feelsLike: number
 	airQuality: {
 		pm2_5: number
 		pm10: number
