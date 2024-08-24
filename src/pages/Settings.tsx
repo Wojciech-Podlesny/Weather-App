@@ -17,12 +17,10 @@ const Settings = () => {
 				<h1 className='text-2xl text-center py-9 lg:pt-28 underline underline-offset-8'>Settings</h1>
 				<div className='mt-3 flex-grow'>
 					<div className='flex flex-col items-center gap-5'>
-						{/* Theme Toggle Section */}
 						<div className='flex items-center gap-5'>
 							<h2 className='text-xl'>Theme:</h2>
 							<DarkModeButton />
 						</div>
-						{/* Units Toggle Section */}
 						<div className='flex items-center gap-5 lg:pl-8 pl-3'>
 							<h2 className='text-xl'>Units:</h2>
 							<ButtonToogleUnit />
