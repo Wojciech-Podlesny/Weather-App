@@ -9,11 +9,7 @@ const showErrorToast = (message: string) => {
 export const WeatherContext = createContext<WeatherContextType | null>(null)
 
 export const WeatherProvider = ({ children }: Props) => {
-<<<<<<< HEAD
-	const [location, setLocation] = useState<string>('') // przerobić na obiekt {city: "Warsaw", country:"Poland"}
-=======
 	const [location, setLocation] = useState<string>('Warsaw')
->>>>>>> f7593e5778a2ef03adce65a7b5668f3826c8cc7f
 	const [weatherData, setWeatherData] = useState<WeatherData | null>(null)
 	const [error, setError] = useState<string | null>(null)
 
@@ -59,10 +55,7 @@ export const WeatherProvider = ({ children }: Props) => {
 						sunset: data.forecast.forecastday[0].astro.sunset,
 						sunrise: data.forecast.forecastday[0].astro.sunrise,
 						cityName: data.location.name,
-<<<<<<< HEAD
 						country :data.location.country,
-=======
->>>>>>> f7593e5778a2ef03adce65a7b5668f3826c8cc7f
 						condition: data.current.condition.text,
 						code: data.current.condition.code,
 						forecast: data.forecast,
