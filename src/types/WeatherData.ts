@@ -7,7 +7,7 @@ export type WeatherData = {
 	pressure: number
 	visibility: number
 	uvIndex: number
-	precipitation: number
+	feelsLike: number
 	airQuality: {
 		pm2_5: number
 		pm10: number
@@ -15,6 +15,7 @@ export type WeatherData = {
 	sunset: string
 	sunrise: string
 	cityName: string
+	country:string,
 	condition: string
 	code: number
 	forecast: {

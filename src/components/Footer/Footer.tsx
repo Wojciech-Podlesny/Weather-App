@@ -12,7 +12,7 @@ const Footer = () => {
 			className={`${
 				isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'
 			} col-start-1 col-end-6 row-start-10 row-end-11 lg:row-start-7 lg:row-end-8 rounded-xl h-20 mb-5 flex items-center justify-between px-5`}>
-			<h1 className='text-center w-full md:w-auto md:mx-auto font-bold text-xl'> &copy; {currentYear} Wojciech Podleśny</h1>
+			<h1 className='text-center w-full md:w-auto md:mx-auto font-bold text-lg'> &copy; {currentYear} Wojciech Podleśny</h1>
 			<div className='flex items-center'>
 				<a
 					href='https://www.linkedin.com/in/wojciech-podlesny'

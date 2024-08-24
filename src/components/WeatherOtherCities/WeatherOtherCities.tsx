@@ -48,21 +48,21 @@ const WeatherOtherCities = () => {
 
 	return (
 		<div
-			className={`rounded-xl col-start-1 col-end-6 row-start-8 row-end-9 lg:row-start-6 lg:row-end-7 ${
+			className={`rounded-xl col-start-1 col-end-6 row-start-9 row-end-10 lg:row-start-6 lg:row-end-7 ${
 				isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'
 			}`}>
-			<div className='mx-10 my-6'>
+			<div className='mx-4 my-6'>
 				<h1 className='text-xl font-semibold'>Weather Other Cities</h1>
 			</div>
 			<ScrollableList>
-				<div className='flex justify-center gap-6 lg:mt-6 mt-5 mb-12'>
+				<div className='flex justify-center mb-4'>
 					{weatherForCities.map((data, index) => (
-						<div className={`m-2 p-4 w-40 sm:w-48 lg:w-56 rounded-lg`} key={index}>
-							<h2 className='text-2xl font-semibold  mb-2 text-center'>{data.location.name}</h2>
+						<div className={`py-4 w-40 sm:w-48 lg:w-56 rounded-lg `} key={index}>
+							<h2 className='font-semibold  mb-2 text-center'>{data.location.name}</h2>
 							<div className='flex items-center justify-center mb-2'>
 								<WeatherIcon conditionCode={weatherData?.code}></WeatherIcon>
 							</div>
-							<h2 className='text-xl mb-1 text-center'>
+							<h2 className='text-center'>
 								{convertTemperature(data.current.temp_c, celcius).toFixed(1)} {celcius ? '°C' : '°F'}
 							</h2>
 						</div>

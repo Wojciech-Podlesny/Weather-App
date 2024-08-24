@@ -8,7 +8,7 @@ import { UVIndex } from '../components/UVIndex/UVIndex'
 import { Visibility } from '../components/Visibility/Visibility'
 import { Wind } from '../components/Wind/Wind'
 import { Sunrise } from '../components/Sunrise/Sunrise'
-import { Precipitation } from '../components/Precipitation/Precipitation'
+import { FeelsLike } from '../components/FeelsLike/FeelsLike'
 import { HourlyForecast } from '../components/HourlyForecast/HourlyForecast'
 import { WeatherOtherCities } from '../components/WeatherOtherCities/WeatherOtherCities'
 import { Footer } from '../components/Footer/Footer'
@@ -25,7 +25,7 @@ const Dashboard = () => {
 				<Wind />
 				<AirQuality />
 				<AirQuality2 />
-				<Precipitation />
+				<FeelsLike />
 				<UVIndex />
 				<Sunrise />
 				<HourlyForecast />

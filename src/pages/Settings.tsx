@@ -12,7 +12,7 @@ const Settings = () => {
 			<div
 				className={`${
 					isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'
-				} min-h-screen flex flex-col relative rounded-xl`}>
+				} min-h-screen flex flex-col relative rounded-xl lg:mt-5`}>
 				<HamburgerMenu />
 				<h1 className='text-2xl text-center py-9 lg:pt-28 underline underline-offset-8'>Settings</h1>
 				<div className='mt-3 flex-grow'>
