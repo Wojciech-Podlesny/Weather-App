@@ -1,6 +1,6 @@
 # Weather App
 
-## Project overwiew
+## Project overview
 
 Weather App is a web application designed to provide users with real-time weather information for any city worldwide. It offers current weather data, an hourly forecast, a map of the selected location, and a temperature graph for the next three days. Built with React, Tailwind CSS, TypeScript, and Chart.js, this application delivers a responsive and interactive user experience.
 
