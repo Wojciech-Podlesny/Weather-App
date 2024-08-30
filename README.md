@@ -1,46 +1,63 @@
-# Getting Started with Create React App
+# Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project overwiew
 
-## Available Scripts
+Weather App is a web application designed to provide users with real-time weather information for any city worldwide. It offers current weather data, an hourly forecast, a map of the selected location, and a temperature graph for the next three days. Built with React, Tailwind CSS, TypeScript, and Chart.js, this application delivers a responsive and interactive user experience.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Search for weather information by city name
+- View current weather information including temperature, humidity, wind speed and more
+- View hourly weather forecast for selected location
+- View map of selected location
+- View temperature graph for next 3 days with Chart.js
+- Detect current location to display weather data
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technologies
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- HTML
+- CSS
+- Tailwind CSS
+- React
+- Typescript
+- React
+- React Router
+- Chart.js
+- WeatherApi API
 
-### `npm test`
+## Application View
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="/src/assets/Screenshot_Desktop.png" alt="Desktop">
 
-### `npm run build`
+<img src="/src/assets/Screenshot_Mobile.png" alt="Mobile">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You can either run the project locally on your machine or simply visit the live version of the app:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+https://weather-app-xs.vercel.app/
 
-### `npm run eject`
+### Local Installation (Optional)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+If you want to run the project locally on your machine, you will need:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- A web browser
+- An internet connection
+- Node.js
+- Yarn or npm
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To install the project locally, follow these steps:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Clone the repository: `git clone https://github.com/Wojciech-Podlesny/Weather-App.git`
+2. Navigate to the project directory: `cd weather-app`
+3. Install the dependencies: `yarn install` or `npm install`
+4. Start the development server: `yarn start` or `npm start`
+5. Open your browser and visit `http://localhost:3000` to view the app
 
-## Learn More
+## Author
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Developed by [Wojciech Podleśny](https://github.com/Wojciech-Podlesny)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
+
+This project is licensed under the ISC license.
