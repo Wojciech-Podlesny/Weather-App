@@ -1,4 +1,4 @@
-import { useState, useEffect, ReactNode, FC } from 'react';
+import { useState, useEffect, ReactNode } from 'react';
 
 type ErrorBoundaryProps = {
   children: ReactNode;
@@ -8,9 +8,9 @@ const ErrorBoundary = ({ children }: ErrorBoundaryProps) => {
   const [hasError, setHasError] = useState<boolean>(false);
 
   useEffect(() => {
-    const handleError = (event: ErrorEvent) => {
+    const handleError = (e: ErrorEvent) => {
       setHasError(true);
-      console.error("ErrorBoundary caught an error", event.error);
+      console.error("ErrorBoundary caught an error", e.error);
     };
 
     window.addEventListener('error', handleError);

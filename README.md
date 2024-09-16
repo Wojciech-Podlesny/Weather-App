@@ -12,6 +12,7 @@ Weather App is a web application designed to provide users with real-time weathe
 - View map of selected location
 - View temperature graph for next 3 days with Chart.js
 - Detect current location to display weather data
+- Comprehensive testing with Jest and React Testing Library to ensure application stability and reliability
 
 ## Technologies
 
@@ -23,6 +24,8 @@ Weather App is a web application designed to provide users with real-time weathe
 - React
 - React Router
 - Chart.js
+- Jest
+- React Testing Library
 - WeatherApi API
 
 ## Application View

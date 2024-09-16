@@ -10,13 +10,13 @@ type City = {
 
 const Location = () => {
   const { location, setLocation } = useWeather();
-  const [inputVal, setInputVal] = useState<string>("");
+  const [inputValue, setInputValue] = useState<string>("");
   const [listCity, setListCity] = useState<City[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isCitySelected, setIsCitySelected] = useState<boolean>(false);
 
   useEffect(() => {
-    setInputVal(location);
+    setInputValue(location.name);
   }, [location]);
 
   const fetchCities = async (inputVal: string) => {
@@ -44,22 +44,22 @@ const Location = () => {
   useEffect(() => {
     if (!isCitySelected) {
       const timeoutId = setTimeout(() => {
-        fetchCities(inputVal);
+        fetchCities(inputValue);
       }, 300);
       return () => clearTimeout(timeoutId);
     }
-  }, [inputVal, isCitySelected]);
+  }, [inputValue, isCitySelected]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setIsCitySelected(false);
-    setInputVal(e.target.value);
+    setInputValue(e.target.value);
   };
 
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      if (inputVal.trim() !== "") {
-        setLocation(inputVal);
+      if (inputValue.trim() !== "") {
+        setLocation({name: inputValue, country: inputValue});
         setListCity([]);
       } else {
         showErrorToast("Location cannot be empty");
@@ -75,7 +75,7 @@ const Location = () => {
     <div className="relative">
       <input
         type="text"
-        value={inputVal}
+        value={inputValue}
         onChange={handleInputChange}
         onKeyDown={handleKeyPress}
         placeholder="Enter city name"
@@ -89,7 +89,7 @@ const Location = () => {
               key={city.id}
               className="p-2 hover:bg-gray-100 cursor-pointer"
               onClick={() => {
-                setLocation(city.name);
+                setLocation({ name: city.name, country: city.country });
                 setListCity([]);
               }}
             >

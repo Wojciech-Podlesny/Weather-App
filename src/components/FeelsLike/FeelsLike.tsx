@@ -1,6 +1,6 @@
 import { useTheme } from '../../hooks/useTheme';
 import { useWeather } from '../../hooks/useWeather';
-import { LuThermometer, LuThermometerSun } from "react-icons/lu";
+import { LuThermometerSun } from "react-icons/lu";
 import { convertTemperature } from '../../utils/ConvertTemperature';
 import { useUnit } from '../../hooks/useUnit';
 
@@ -17,7 +17,7 @@ const FeelsLike = () => {
             </div>
             {weatherData && (
                 <div className='font-bold ml-6 mt-2'>
-                    {/* <p>{convertTemperature(weatherData.feelsLike,celcius)}  {celcius ? '°C' : '°F'}</p> */}
+                    <p>{convertTemperature(weatherData.feelsLike,celcius)}  {celcius ? '°C' : '°F'}</p>
                     <p>{weatherData.feelsLike} °</p>
             
                 </div>

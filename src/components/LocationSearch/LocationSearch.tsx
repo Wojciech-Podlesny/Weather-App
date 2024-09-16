@@ -17,7 +17,7 @@ const LocationSearch = ({ isMobileSearchOpen, onSearchClose, theme }: LocationSe
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          setLocation(`${latitude},${longitude}`);
+          setLocation({ name: `${latitude}`, country: `${longitude}` });
           setIsFetching(false);
           onSearchClose();
         },
