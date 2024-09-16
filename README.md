@@ -21,7 +21,6 @@ Weather App is a web application designed to provide users with real-time weathe
 - Tailwind CSS
 - React
 - Typescript
-- React
 - React Router
 - Chart.js
 - Jest
