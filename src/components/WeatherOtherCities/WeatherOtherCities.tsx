@@ -73,4 +73,5 @@ const WeatherOtherCities = () => {
 	)
 }
 
+
 export { WeatherOtherCities }

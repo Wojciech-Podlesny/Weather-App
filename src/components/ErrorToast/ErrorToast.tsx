@@ -8,7 +8,7 @@ type ErrorToastProps = {
 const ErrorToast = ({ message }: ErrorToastProps) => {
 	toast.error(message, {
 		position: 'top-right',
-		autoClose: 5000,
+		autoClose: 15000,
 		hideProgressBar: false,
 		closeOnClick: true,
 		pauseOnHover: true,
@@ -16,7 +16,7 @@ const ErrorToast = ({ message }: ErrorToastProps) => {
 		progress: undefined,
 	})
 
-	return <ToastContainer />
+	return <ToastContainer/>
 }
 
 export { ErrorToast }

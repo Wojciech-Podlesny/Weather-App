@@ -18,8 +18,6 @@ const FeelsLike = () => {
             {weatherData && (
                 <div className='font-bold ml-6 mt-2'>
                     <p>{convertTemperature(weatherData.feelsLike,celcius)}  {celcius ? '°C' : '°F'}</p>
-                    <p>{weatherData.feelsLike} °</p>
-            
                 </div>
             )}
         </div>

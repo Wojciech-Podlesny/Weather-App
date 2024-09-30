@@ -13,6 +13,7 @@ Weather App is a web application designed to provide users with real-time weathe
 - View temperature graph for next 3 days with Chart.js
 - Detect current location to display weather data
 - Comprehensive testing with Jest and React Testing Library to ensure application stability and reliability
+- Testing E2E
 
 ## Technologies
 
@@ -25,7 +26,8 @@ Weather App is a web application designed to provide users with real-time weathe
 - Chart.js
 - Jest
 - React Testing Library
-- WeatherApi API
+- Playwright
+- WeatherApi API, OpenWeatherMap API
 
 ## Application View
 
@@ -55,6 +57,19 @@ To install the project locally, follow these steps:
 3. Install the dependencies: `yarn install` or `npm install`
 4. Start the development server: `yarn start` or `npm start`
 5. Open your browser and visit `http://localhost:3000` to view the app
+
+### Running tests 
+
+To ensure the application functions as expected, comprehensive testing is employed:
+
+- Unit Tests: These tests are run with Jest and React Testing Library. They check individual components and their interactions.
+
+Run tests `yarn test` or `npm test`
+
+- End-to-End (E2E) Tests: These tests are run with Playwright and verify the application's overall functionality by simulating real user interactions.
+
+Run tests `yarn playwright test --ui` or `npm playwright test --ui`
+
 
 ## Author
 

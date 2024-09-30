@@ -3,7 +3,6 @@ import { Humidity } from "./Humidity";
 import { useTheme } from "../../hooks/useTheme";
 import { useWeather } from "../../hooks/useWeather";
 
-
 type ThemeContextType = {
   isDarkMode: boolean;
 };

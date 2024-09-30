@@ -24,6 +24,5 @@ describe("Footer Component", () => {
 
     render(<Footer />);
     expect(screen.getByText(/Wojciech Podleśny/i)).toBeInTheDocument();
-
   });
 });

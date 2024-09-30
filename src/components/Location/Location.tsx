@@ -14,10 +14,13 @@ const Location = () => {
   const [listCity, setListCity] = useState<City[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isCitySelected, setIsCitySelected] = useState<boolean>(false);
+  const [selectedIndex, setSelectedIndex] = useState<number>(-1);
 
   useEffect(() => {
-    setInputValue(location.name);
-  }, [location]);
+    if (isCitySelected) {
+      setInputValue(`${location.name}, ${location.country}`);
+    }
+  }, [isCitySelected, location]);
 
   const fetchCities = async (inputVal: string) => {
     if (inputVal.length < 3) {
@@ -37,7 +40,7 @@ const Location = () => {
       console.error("Error fetching cities:", error);
     } finally {
       setIsLoading(false);
-      setIsCitySelected(true);
+      setIsCitySelected(false);
     }
   };
 
@@ -53,17 +56,41 @@ const Location = () => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setIsCitySelected(false);
     setInputValue(e.target.value);
+    setSelectedIndex(-1);
   };
 
-  const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      if (inputValue.trim() !== "") {
-        setLocation({name: inputValue, country: inputValue});
-        setListCity([]);
-      } else {
-        showErrorToast("Location cannot be empty");
-      }
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+
+    switch (e.key) {
+      case "ArrowDown":
+        e.preventDefault();
+        setSelectedIndex((prevIndex) =>
+          prevIndex < listCity.length - 1 ? prevIndex + 1 : prevIndex
+        );
+        break;
+      case "ArrowUp":
+        e.preventDefault();
+        setSelectedIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : 0));
+        break;
+      case "Enter":
+        e.preventDefault();
+        if (selectedIndex >= 0) {
+          const selectedCity = listCity[selectedIndex];
+          setLocation({
+            name: selectedCity.name,
+            country: selectedCity.country,
+          });
+          setInputValue(`${selectedCity.name}, ${selectedCity.country}`);
+          setListCity([]);
+          setIsCitySelected(true);
+        } else if (inputValue.trim() !== "") {
+          setLocation({ name: inputValue, country: inputValue });
+          setListCity([]);
+          setIsCitySelected(true);
+        } else {
+          showErrorToast("Location cannot be empty");
+        }
+        break;
     }
   };
 
@@ -74,23 +101,28 @@ const Location = () => {
   return (
     <div className="relative">
       <input
+        data-testid="input-element"
         type="text"
         value={inputValue}
         onChange={handleInputChange}
-        onKeyDown={handleKeyPress}
+        onKeyDown={handleKeyDown}
         placeholder="Enter city name"
         className="placeholder-gray-500 pr-10 pl-16 w-full py-2 text-base rounded-2xl border-2 border-black text-black"
       />
       {isLoading && <div className="absolute bg-white p-2">Loading...</div>}
       {listCity.length > 0 && (
         <ul className="absolute bg-white border border-gray-300 rounded mt-1 w-full">
-          {listCity.map((city) => (
+          {listCity.map((city, index) => (
             <li
               key={city.id}
-              className="p-2 hover:bg-gray-100 cursor-pointer"
+              className={`p-2 cursor-pointer ${
+                index === selectedIndex ? "bg-gray-200" : "hover:bg-gray-100"
+              }`}
               onClick={() => {
                 setLocation({ name: city.name, country: city.country });
+                setInputValue(`${city.name}, ${city.country}`);
                 setListCity([]);
+                setIsCitySelected(true);
               }}
             >
               {city.name}, {city.country}

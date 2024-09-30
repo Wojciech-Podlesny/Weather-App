@@ -1,54 +1,71 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
 
-type dataMap = {
-  zoom: number;
-  latitude: number;
-  longitude: number;
-  layer: string
-};
+// Typy danych pogodowych
+interface WeatherData {
+  location: {
+    name: string;
+    lat: number;
+    lon: number;
+  };
+  current: {
+    temp_c: number;
+    precip_mm: number; // Opady w milimetrach
+    condition: {
+      text: string;
+      icon: string;
+    };
+  };
+}
 
-const WeatherMap = ({ layer, latitude, longitude, zoom }: dataMap) => {
-  const [mapUrl, setMapUrl] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
+// Ikona dla markera (custom marker)
+const customIcon = new L.Icon({
+  iconUrl: 'https://cdn-icons-png.flaticon.com/512/1116/1116453.png', // Przykład ikony opadów
+  iconSize: [35, 35],
+});
+
+const WeatherMap = () => {
+  const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
+
+  const latitude = 52.2297; // Domyślne współrzędne (np. Warszawa)
+  const longitude = 21.0122;
 
   useEffect(() => {
- 
-    const displayMap = async () => {
+    const fetchWeatherData = async () => {
       try {
-        const responseMap = await fetch(
-          `https://tile.openweathermap.org/map/${layer}/${zoom}/${Math.round(latitude)}/${Math.round(longitude)}?appid=${process.env.REACT_APP_WEATHER_MAP_KEY}`
+        const response = await fetch(
+          `http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${latitude},${longitude}`
         );
-
-        if (responseMap.ok) {
-          setMapUrl(responseMap.url);
-        } else {
-          throw new Error("Failed to load map");
-        }
-      } catch (error: any) {
-        setError(`Error loading map, ${error.message}`);
+        const data = await response.json();
+        setWeatherData(data);
+      } catch (error) {
+        console.error('Error fetching weather data:', error);
       }
     };
 
-    displayMap();
-
-  }, [layer, zoom,latitude,longitude]);
-
-  if (error) {
-    return <div>{error}</div>;
-  }
+    fetchWeatherData();
+  }, []);
 
   return (
-    <div className="w-full h-full relative">
-      {mapUrl && (
-        <img src={mapUrl} alt="Map" className="w-full h-full object-cover" />
-      )}
+    <div>
+      <MapContainer center={[latitude, longitude]} zoom={10} style={{ height: '600px', width: '100%' }}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {weatherData && (
+          <Marker position={[weatherData.location.lat, weatherData.location.lon]} icon={customIcon}>
+            <Popup>
+              <div style={{ textAlign: 'center' }}>
+                <p>Opady: {weatherData.current.precip_mm} mm</p>     
+              </div>
+            </Popup>
+          </Marker>
+        )}
+      </MapContainer>
     </div>
   );
 };
 
-
-
-
-
-export { WeatherMap };
-
+export default WeatherMap;

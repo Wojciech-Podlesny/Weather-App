@@ -37,7 +37,7 @@ const CurrentWeather = () => {
           <div className="flex flex-col sm:items-start md:items-start lg:items-start">
             <WeatherIcon conditionCode={weatherData.code} />
             <Temperature />
-            <p className="lg:text-left">
+            <p data-testid="location" className="lg:text-left">
               {location.name} , {location.country}
             </p>
             <DateTimeDisplay />

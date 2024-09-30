@@ -3,7 +3,6 @@ import { Visibility } from "./Visibility";
 import { useTheme } from "../../hooks/useTheme";
 import { useWeather } from "../../hooks/useWeather";
 
-
 type ThemeContextType = {
   isDarkMode: boolean;
 };

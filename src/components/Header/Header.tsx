@@ -32,7 +32,7 @@ const Header = () => {
 				</div>
 				<div className='flex items-center flex-grow ml-5'>
 					<MdOutlineLocationOn />
-					{!error && <p className='m-2'>{location.name}, {location.country}</p>}
+					{!error && <p data-testid="location-name" className='m-2'>{location.name}, {location.country}</p>}
 				</div>
 				<div className='hidden lg:flex flex-grow mr-26'>
 					<LocationSearch theme={isDarkMode ? 'dark' : 'light'} isMobileSearchOpen={false} onSearchClose={closeSearch} />

@@ -15,7 +15,7 @@ const showErrorToast = (message: string) => {
 export const WeatherContext = createContext<WeatherContextType | null>(null);
 
 export const WeatherProvider = ({ children }: Props) => {
-  const [location, setLocation] = useState<Location>({ name: "", country: "" });
+  const [location, setLocation] = useState<Location>({ name: "Warsaw", country: "Poland" });
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [error, setError] = useState<string | null>(null);
 

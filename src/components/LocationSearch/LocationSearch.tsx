@@ -51,6 +51,7 @@ const LocationSearch = ({ isMobileSearchOpen, onSearchClose, theme }: LocationSe
         <Location /> 
       </div>
       <button
+      data-testid="geolocation-icon"
         onClick={fetchGeolocation}
         disabled={isFetching}
         className='absolute right-6 top-1/2 transform -translate-y-1/2'

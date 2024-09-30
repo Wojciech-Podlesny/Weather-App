@@ -3,7 +3,6 @@ import { Sunrise } from "./Sunrise";
 import { useTheme } from "../../hooks/useTheme";
 import { useWeather } from "../../hooks/useWeather";
 
-
 type ThemeContextType = {
   isDarkMode: boolean;
 };
@@ -11,7 +10,7 @@ type ThemeContextType = {
 type WeatherContextType = {
   weatherData: {
     sunrise: string;
-    sunset: string
+    sunset: string;
   } | null;
 };
 

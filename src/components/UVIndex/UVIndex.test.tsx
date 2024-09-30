@@ -3,7 +3,6 @@ import { UVIndex } from "./UVIndex";
 import { useTheme } from "../../hooks/useTheme";
 import { useWeather } from "../../hooks/useWeather";
 
-
 type ThemeContextType = {
   isDarkMode: boolean;
 };
@@ -29,7 +28,7 @@ const mockedUseWeather = useWeather as unknown as jest.MockedFunction<
   () => WeatherContextType
 >;
 
-describe("UVIndex Component", () => {  // Zmieniono na poprawną nazwę komponentu
+describe("UVIndex Component", () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
