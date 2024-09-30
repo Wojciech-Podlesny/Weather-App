@@ -26,7 +26,10 @@ Weather App is a web application designed to provide users with real-time weathe
 - Chart.js
 - Jest
 - React Testing Library
+<<<<<<< HEAD
 - Playwright
+=======
+>>>>>>> 9ef155be7ede7f4bb5614b76d8696dcde551f363
 - WeatherApi API, OpenWeatherMap API
 
 ## Application View
