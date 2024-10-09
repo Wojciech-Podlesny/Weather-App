@@ -1,14 +1,11 @@
 import { Locator, Page } from "@playwright/test";
 
 export class HeaderPage {
-  navigate() {
-      throw new Error("Method not implemented.");
-  }
   private readonly page: Page;
   private readonly searchInput: Locator;
   private readonly errorToastMessage: Locator;
-  private readonly darkModeToggle: Locator;
-  private readonly lightModeToggle: Locator;
+  readonly darkModeToggle: Locator;
+  readonly lightModeToggle: Locator;
   private readonly locationLabel: Locator;
   private readonly errorToastBody: Locator;
   private readonly geolocationIcon: Locator;
@@ -61,5 +58,13 @@ export class HeaderPage {
 
   async isLightModeToggleVisible(): Promise<boolean> {
     return this.lightModeToggle.isVisible();
+  }
+
+  async setGeolocation() {
+    await this.geolocationIcon.click()
+  }
+
+  async darkMode() {
+    await this.darkModeToggle.click()
   }
 }

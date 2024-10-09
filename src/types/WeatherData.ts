@@ -1,10 +1,13 @@
 import { ReactNode } from "react";
 
 export type WeatherData = {
+  lat: number,
+   lon: number,
   temperature: number;
   wind: number;
   humidity: number;
   pressure: number;
+  precip_mm: number
   visibility: number;
   uvIndex: number;
   feelsLike: number;

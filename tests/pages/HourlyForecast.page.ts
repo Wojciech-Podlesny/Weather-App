@@ -5,19 +5,12 @@ export class HourlyForecastPage {
   private readonly todayTab: Locator;
   private readonly tomorrowTab: Locator;
   private readonly afterTomorrowTab: Locator;
-  private readonly hourlyForecastItems: Locator[];
 
   constructor(page: Page) {
     this.page = page;
     this.todayTab = page.locator('[data-testid="tab-today"]');
     this.tomorrowTab = page.locator('[data-testid="tab-tomorrow"]');
     this.afterTomorrowTab = page.locator('[data-testid="tab-after-tomorrow"]');
-    this.hourlyForecastItems = [
-      page.locator('[data-testid="forecast-item-0"]'),
-      page.locator('[data-testid="forecast-item-1"]'),
-      page.locator('[data-testid="forecast-item-2"]'),
-      page.locator('[data-testid="forecast-item-3"]'),
-    ];
   }
 
   async clickToday() {

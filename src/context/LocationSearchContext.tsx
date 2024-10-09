@@ -15,14 +15,17 @@ const showErrorToast = (message: string) => {
 export const WeatherContext = createContext<WeatherContextType | null>(null);
 
 export const WeatherProvider = ({ children }: Props) => {
-  const [location, setLocation] = useState<Location>({ name: "Warsaw", country: "Poland" });
+  const [location, setLocation] = useState<Location>({
+    name: "Warsaw",
+    country: "Poland",
+  });
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (location.name) {
       fetch(
-        `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&aqi=yes&q=${location.name}&days=5`
+        `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&aqi=yes&q=${location.name},${location.country}&days=5`
       )
         .then((response) => {
           if (!response.ok) {
@@ -48,6 +51,9 @@ export const WeatherProvider = ({ children }: Props) => {
             }));
 
           const extractedData: WeatherData = {
+            lat: data.location.lat,
+            lon: data.location.lon,
+            precip_mm: data.current.precip_mm,
             temperature: data.current.temp_c,
             wind: data.current.wind_kph,
             humidity: data.current.humidity,
@@ -70,10 +76,16 @@ export const WeatherProvider = ({ children }: Props) => {
           };
 
           setWeatherData(extractedData);
-          setLocation({
-            name: extractedData.cityName,
-            country: extractedData.country,
-          });
+
+          if (
+            location.name !== extractedData.cityName ||
+            location.country !== extractedData.country
+          ) {
+            setLocation({
+              name: extractedData.cityName,
+              country: extractedData.country,
+            });
+          }
 
           setError(null);
         })

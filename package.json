@@ -26,11 +26,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set NODE_OPTIONS=--max-old-space-size=8192 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "e2e": "npx playwright test --ui"
+    "e2e": "npx playwright test --ui",
+    "allure": "allure generate allure-results -o ./tests/e2e/allure-reports"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.0.3",
     "@playwright/test": "^1.47.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.5.0",
@@ -58,6 +60,7 @@
     "@testing-library/user-event": "^14.5.2",
     "@types/react": "^18.3.6",
     "@types/react-dom": "^18.3.0",
+    "allure-playwright": "^3.0.3",
     "tailwindcss": "^3.4.3",
     "ts-jest": "^29.2.5"
   }

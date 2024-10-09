@@ -18,7 +18,7 @@ const Location = () => {
 
   useEffect(() => {
     if (isCitySelected) {
-      setInputValue(`${location.name}, ${location.country}`);
+      setInputValue(`${location.name}`);
     }
   }, [isCitySelected, location]);
 

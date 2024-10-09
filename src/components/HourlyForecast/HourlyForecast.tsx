@@ -40,7 +40,6 @@ const HourlyForecast = () => {
         return `Day ${index}`;
     }
   };
-  console.log(days);
   return (
     <div
       className={`${

@@ -12,19 +12,20 @@ const Maps = () => {
       <div
         className={`${
           isDarkMode ? "bg-gray-800 text-white" : "bg-white text-black"
-        } min-h-screen relative rounded-xl`}
+        } min-h-screen relative rounded-xl lg:mt-5`}
       >
         <HamburgerMenu />
-        <div className="absolute top-2 right-8 p-5 lg:block hidden">
+        <div className="absolute top-2 right-10 p-5 lg:block hidden">
           <DarkModeButton />
         </div>
         <div className="w-full h-full"></div>
          <WeatherMap />
       </div>
-      <div>
-        <Footer />
+      <div className="mt-5">
+          <Footer />
       </div>
     </div>
+
   );
 };
 

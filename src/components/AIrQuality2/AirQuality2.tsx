@@ -14,7 +14,7 @@ const AirQuality2 = () => {
             </div>
             {weatherData && (
                 <div className='font-bold ml-6 mt-2'>
-                    <p>{weatherData.airQuality.pm2_5}</p>
+                    <p>{weatherData.airQuality.pm2_5.toFixed(0)}</p>
                 </div>
             )}
         </div>

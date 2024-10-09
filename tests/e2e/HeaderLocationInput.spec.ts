@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { HeaderPage } from "./pages/headerPage";
+import { HeaderPage } from "../pages/Header.page";
 
 let header: HeaderPage;
 test.beforeEach(async ({ page }) => {
@@ -9,9 +9,9 @@ test.beforeEach(async ({ page }) => {
 
 test.describe("Weather Search Test Suite", () => {
   test("Should display the correct city name after a successful search", async () => {
-    await header.searchForLocation("Warsaw");
+    await header.searchForLocation("Katowice");
     const locationText = await header.getLocationText();
-    expect(locationText).toContain("Warsaw");
+    expect(locationText).toContain("Katowice");
   });
 
   test("Should show an error message when an invalid city name is entered", async () => {
