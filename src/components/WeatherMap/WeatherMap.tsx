@@ -53,11 +53,11 @@ const WeatherMap = () => {
   const longitude = weatherData.lon;
 
   return (
-    <div className='flex justify-center items-center py-24 px-12'>
+    <div className='flex justify-center items-center py-0 px-0 lg:px-12 lg:py-24'>
       <MapContainer
         center={[latitude, longitude]}
         zoom={10}
-        style={{ height: '1200px', width: '100%',}}
+        style={{ height: '1200px', width: '100%',position: 'relative', zIndex: 1 }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

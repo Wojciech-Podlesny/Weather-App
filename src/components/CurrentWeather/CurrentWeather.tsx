@@ -61,7 +61,9 @@ const CurrentWeather = () => {
         <div className="flex justify-around items-center mr-8">
           <button onClick={handleAddFavorite} aria-label="Add to favorites">
             <VscHeart
-                className={`w-8 h-8 transition-all ${isFavourite ? 'fill-red-500' : 'fill-black'}`}
+                className={`w-8 h-8 transition-colors duration-300 ${
+                    isFavourite ? 'fill-red-500' : isDarkMode ? 'fill-white' : 'fill-black'
+                }`}
             />
           </button>
           <div className="hidden lg:block">

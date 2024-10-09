@@ -9,6 +9,7 @@ const SavedLocation = () => {
     const { isDarkMode } = useTheme();
     const { favoriteCities, removeFavoriteCity } = useFavourites();
 
+
     return (
 
         <div>
@@ -22,7 +23,7 @@ const SavedLocation = () => {
                     {favoriteCities.length === 0 ? (
                         <p className="text-gray-500 text-2xl">No favourite locations</p>
                     ) : (
-                        <ul className="mt-6 space-y-4 pt-4">
+                        <ul className={`{${isDarkMode ? 'bg-gray-800 text-black' : 'bg-white text-black' } mt-6 space-y-4 pt-4`}>
                             {favoriteCities.map((city) => (
                                 <li key={city.id}
                                     className="flex justify-between items-center p-3 bg-gray-100 rounded-lg shadow hover:bg-gray-200 transition duration-200">

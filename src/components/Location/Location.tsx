@@ -1,6 +1,7 @@
 import { useState, useEffect, ChangeEvent, KeyboardEvent } from "react";
 import { useWeather } from "../../hooks/useWeather";
 import { ErrorToast } from "../ErrorToast/ErrorToast";
+import {useTheme} from "../../hooks/useTheme";
 
 type City = {
   id: string;
@@ -15,6 +16,7 @@ const Location = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isCitySelected, setIsCitySelected] = useState<boolean>(false);
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
+  const {isDarkMode} = useTheme()
 
   useEffect(() => {
     if (isCitySelected) {
@@ -111,7 +113,7 @@ const Location = () => {
       />
       {isLoading && <div className="absolute bg-white p-2">Loading...</div>}
       {listCity.length > 0 && (
-        <ul className="absolute bg-white border border-gray-300 rounded mt-1 w-full">
+        <ul className={`${isDarkMode ? 'bg-gray-800 text-black' : 'text-black'} absolute bg-white border border-gray-300 rounded mt-1 w-full`}>
           {listCity.map((city, index) => (
             <li
               key={city.id}

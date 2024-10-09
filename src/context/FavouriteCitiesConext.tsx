@@ -6,7 +6,6 @@ import {useLocalStorage} from "../hooks/useLocalStorage";
  export const FavoriteCitiesContext = createContext<FavoriteCitiesContextType | null>(null); //pusta tablica// favorites citys pusta tablica/ ze nei było nulla a puista tablica
 
 export const FavoriteCitiesProvider = ({ children }: Props) => {
-  // const [favoriteCities, setFavoriteCities] = useState<City[]>([]);
   const [favoriteCities, setFavoriteCities] = useLocalStorage('favoriteCities',[]);
 
   const addFavoriteCity = (city: City) => {
