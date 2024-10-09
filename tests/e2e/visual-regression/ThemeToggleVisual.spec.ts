@@ -15,13 +15,6 @@ test.describe("Theme Toggle Visual Testing", () => {
     expect(pages).toMatchSnapshot('dark-mode.png')
     const pages2 = await header.darkModeToggle.screenshot()
     expect(pages2).toMatchSnapshot('dark-lof.png')
-
-
-
-
-
-
-
     // await page.screenshot({ path: "light-mode.png" });
     // expect(await page.screenshot()).toMatchSnapshot();
 
