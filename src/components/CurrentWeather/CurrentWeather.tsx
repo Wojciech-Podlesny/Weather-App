@@ -41,10 +41,10 @@ const CurrentWeather = () => {
 
       if(isFavourite) {
         removeFavoriteCity(city.id)
-        toast.info(`${location.name} Delete with favourite !`);
+        toast.info(`${location.name} has been removed from favorites!`);
     } else {
         addFavoriteCity(city)
-        toast.info(`${location.name} Add to favourite !`);
+        toast.success(`${location.name} Add to favourite !`);
       }
     }
     setFavourite(!isFavourite)

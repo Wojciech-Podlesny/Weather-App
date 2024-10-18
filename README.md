@@ -31,9 +31,9 @@ Weather App is a web application designed to provide users with real-time weathe
 
 ## Application View
 
-<img src="/src/assets/Screenshot_Desktop.png" alt="Desktop">
+<img src="./src/assets/Screenshot_Desktop.png" alt="Desktop">
 
-<img src="/src/assets/Screenshot_Mobile.png" alt="Mobile">
+<img src="./src/assets/Screenshot_Mobile.png" alt="Mobile">
 
 ## Getting Started
 

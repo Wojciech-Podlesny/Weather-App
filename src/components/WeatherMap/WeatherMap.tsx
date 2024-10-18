@@ -57,7 +57,7 @@ const WeatherMap = () => {
       <MapContainer
         center={[latitude, longitude]}
         zoom={10}
-        style={{ height: '1200px', width: '100%',position: 'relative', zIndex: 1 }}
+        style={{ height: '100vh', width: '100%',position: 'relative', zIndex: 1 }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
