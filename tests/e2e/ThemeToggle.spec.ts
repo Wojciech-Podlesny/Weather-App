@@ -3,42 +3,43 @@ import { HeaderPage } from "../pages/Header.page";
 
 
 
-let header: HeaderPage;
+let headerPage: HeaderPage;
+
 test.beforeEach(async ({ page }) => {
-  header = new HeaderPage(page);
-  await header.goToHomePage();
+  headerPage = new HeaderPage(page);
+  await headerPage.goToHomePage();
 });
 
 test.describe("Dark Mode tests", () => {
   test("Switching to Dark Mode when clicking the Dark Mode icon", async () => {
-    const isDarkModeVisible = await header.isDarkModeToggleVisible();
+    const isDarkModeVisible = await headerPage.isDarkModeToggleVisible();
     expect(isDarkModeVisible).toBeTruthy();
-    await header.toggleDarkMode(false);
-    const isLightModeVisible = await header.isLightModeToggleVisible();
+    await headerPage.toggleDarkMode(false);
+    const isLightModeVisible = await headerPage.isLightModeToggleVisible();
     expect(isLightModeVisible).toBeTruthy();
   });
 
   test("Switching to Light Mode when clicking the Light Mode icon", async () => {
-    await header.toggleDarkMode(true);
-    const isLightModeVisible = await header.isLightModeToggleVisible();
+    await headerPage.toggleDarkMode(true);
+    const isLightModeVisible = await headerPage.isLightModeToggleVisible();
     expect(isLightModeVisible).toBeTruthy();
-    await header.toggleDarkMode(false);
-    const isDarkModeVisible = await header.isDarkModeToggleVisible();
+    await headerPage.toggleDarkMode(false);
+    const isDarkModeVisible = await headerPage.isDarkModeToggleVisible();
     expect(isDarkModeVisible).toBeTruthy();
   });
   test("Visibility of Dark Mode and Light Mode icons", async () => {
-    const isDarkModeVisible = await header.isDarkModeToggleVisible();
+    const isDarkModeVisible = await headerPage.isDarkModeToggleVisible();
     expect(isDarkModeVisible).toBeTruthy();
-    await header.toggleDarkMode(true);
-    const isLightModeVisible = await header.isLightModeToggleVisible();
+    await headerPage.toggleDarkMode(true);
+    const isLightModeVisible = await headerPage.isLightModeToggleVisible();
     expect(isLightModeVisible).toBeTruthy();
   });
 
   test("Rapid toggling between Dark Mode and Light Mode", async () => {
     for (let i = 0; i < 5; i++) {
-      await header.toggleDarkMode(true);
-      await header.toggleDarkMode(false);
+      await headerPage.toggleDarkMode(true);
+      await headerPage.toggleDarkMode(false);
     }
-    expect(await header.isDarkModeToggleVisible()).toBeTruthy();
+    expect(await headerPage.isDarkModeToggleVisible()).toBeTruthy();
   });
 });

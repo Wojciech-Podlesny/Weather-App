@@ -10,9 +10,8 @@ export class WeatherOtherCitiesListPage {
     this.weatherCityContainers = page.locator('[data-testid="cities"]');
   }
 
-  // Method to get weather information for all cities in the array
   async getWeatherForAllCities(): Promise<{ city: string; temperature: string | null }[]> {
-    const weatherData: { city: string; temperature: string | null }[] = []; // Specify type here
+    const weatherData: { city: string; temperature: string | null }[] = [];
 
     for (let i = 0; i < this.cities.length; i++) {
       const cityName = this.cities[i];
@@ -25,7 +24,6 @@ export class WeatherOtherCitiesListPage {
     return weatherData;
   }
 
-  // Get temperature for a specific city based on the city name
   async getTemperatureForCity(cityName: string): Promise<string | null> {
     const cityContainer = this.weatherCityContainers.locator(`h2:has-text("${cityName}")`);
     const temperatureElement = cityContainer.locator('..').locator('h2').nth(1);

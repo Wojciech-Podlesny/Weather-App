@@ -1,7 +1,7 @@
 import { Locator, Page } from "@playwright/test";
+import {HelperBase} from "../helpers/HelperBase";
 
-export class ConditionWeatherPage {
-  private readonly page: Page;
+export class ConditionWeatherPage extends HelperBase {
   private readonly humidity: Locator;
   private readonly visibility: Locator;
   private readonly pressure: Locator;
@@ -13,7 +13,7 @@ export class ConditionWeatherPage {
   private readonly sunrise: Locator;
 
   constructor(page: Page) {
-    this.page = page;
+    super(page)
     this.humidity = page.locator('[data-testid="humidity-id"]');
     this.visibility = page.locator('[data-testid="visibility-id"]');
     this.pressure = page.locator('[data-testid="pressure-id"]');
@@ -25,49 +25,40 @@ export class ConditionWeatherPage {
     this.sunrise = page.locator('[data-testid="sunrise-id"]');
   }
 
-  private async parseNumber(locator: Locator): Promise<number | null> {
-    try {
-      const text = await locator.textContent();
-      return Number(text);
-    } catch (error) {
-      console.error(`Error parsing number for locator ${locator}:`, error);
-      return null;
-    }
+  async getHumidityValue(): Promise<number | null> {
+    return this.getValue(this.humidity)
   }
 
-  async getHumidity(): Promise<number | null> {
-    return this.parseNumber(this.humidity);
-  }
 
-  async getVisibility(): Promise<number | null> {
+  async getVisibilityValue(): Promise<number | null> {
     return this.parseNumber(this.visibility);
   }
 
-  async getPressure(): Promise<number | null> {
+  async getPressureValue(): Promise<number | null> {
     return this.parseNumber(this.pressure);
   }
 
-  async getFeelsLike(): Promise<number | null> {
+  async getFeelsLikeValue(): Promise<number | null> {
     return this.parseNumber(this.feelsLike);
   }
 
-  async getAirQuality(): Promise<number | null> {
+  async getAirQualityValue(): Promise<number | null> {
     return this.parseNumber(this.airQuality);
   }
 
-  async getAirQuality2(): Promise<number | null> {
+  async getAirQuality2Value(): Promise<number | null> {
     return this.parseNumber(this.airQuality2);
   }
 
-  async getUVIndex(): Promise<number | null> {
+  async getUVIndexValue(): Promise<number | null> {
     return this.parseNumber(this.uvIndex);
   }
 
-  async getWind(): Promise<number | null> {
+  async getWindValue(): Promise<number | null> {
     return this.parseNumber(this.wind);
   }
 
-  async getSunrise(): Promise<number | null> {
+  async getSunriseValue(): Promise<number | null> {
     return this.parseNumber(this.sunrise);
   }
 }

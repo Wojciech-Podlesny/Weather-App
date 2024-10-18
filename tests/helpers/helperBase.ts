@@ -1,4 +1,4 @@
-import { Page, Locator } from "@playwright/test";
+import {Locator, Page} from "@playwright/test";
 
 export class HelperBase {
   readonly page: Page;
@@ -7,17 +7,22 @@ export class HelperBase {
     this.page = page;
   }
 
-  async visitWebsite() {
-    await this.page.goto("https://weather-app-xs.vercel.app/");
-  }
-
   async parseNumber(locator: Locator): Promise<number | null> {
     try {
       const text = await locator.textContent();
-      return Number(text);
+      if (text) {
+        const number = text.match(/[\d.]+/);
+        return number ? Number(number[0]) : null;
+      }
+      return null;
     } catch (error) {
       console.error(`Error parsing number for locator ${locator}:`, error);
       return null;
     }
+  }
+
+  async getValue(locator: Locator): Promise<number | null> {
+    const isVisible = await locator.isVisible();
+    return isVisible ? this.parseNumber(locator) : null;
   }
 }

@@ -29,7 +29,7 @@ const Footer = () => {
           aria-label="Linkedin"
           className="cursor-pointer transition-transform transform hover:scale-110 focus:scale-110 hover:text-blue-800"
         >
-          <FaLinkedin size={"1.5em"} className="m-2" />
+          <FaLinkedin size={"1.5em"} className="m-2"   data-testid="linkedins-link" />
         </a>
         <a
           data-testid="github-link"
@@ -39,7 +39,7 @@ const Footer = () => {
           aria-label="GitHub"
           className="cursor-pointer transition-transform transform hover:scale-110 focus:scale-110 hover:text-blue-800"
         >
-          <FaGithub size={"1.5em"} className="m-2" />
+          <FaGithub size={"1.5em"} className="m-2"  data-testid="githubs-link" />
         </a>
       </div>
     </footer>

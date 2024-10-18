@@ -10,6 +10,7 @@
 /test-results
 /playwright-report
 /allure-report
+/allure-results
 .idea/
 
 # production

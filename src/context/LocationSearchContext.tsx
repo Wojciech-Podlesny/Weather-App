@@ -91,8 +91,8 @@ export const WeatherProvider = ({ children }: Props) => {
         })
         .catch((error) => {
           console.error("Błąd fetch:", error);
-          setError("Błąd podczas pobierania danych pogodowych");
-          showErrorToast("Błąd podczas pobierania danych pogodowych");
+          setError("Error while downloading weather data");
+          showErrorToast("Error while downloading weather data");
         });
     }
   }, [location]);

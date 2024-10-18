@@ -13,9 +13,7 @@ export class SidebarPage {
     this.sidebar = page.locator('[data-testid="sidebar"]');
     this.dashboardLink = page.locator('[data-testid="dashboard-link"]');
     this.mapsLink = page.locator('[data-testid="maps-link"]');
-    this.savedLocationLink = page.locator(
-      '[data-testid="saved-location-link"]'
-    );
+    this.savedLocationLink = page.locator('[data-testid="saved-location-link"]');
     this.settingsLink = page.locator('[data-testid="settings-link"]');
   }
 

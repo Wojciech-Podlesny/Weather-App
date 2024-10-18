@@ -4,7 +4,7 @@ import { HourlyForecastPage } from "../../pages/HourlyForecast.page";
 import { SidebarPage } from "../../pages/Sidebar.page";
 import { ConditionWeatherPage } from "../../pages/ConditionWeather.page";
 import { FooterPage } from "../../pages/Footer.page";
-import { WeatherOtherCitiesListPage } from "../../pages/WeatherOtherCities.page";
+import { WeatherOtherCitiesListPage } from "../../pages/WeatherOtherCitiesList.page";
 import { CurrentWeatherPage } from "../../pages/CurrentWeather.page";
 
 export class PageManager {

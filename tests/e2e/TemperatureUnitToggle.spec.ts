@@ -2,26 +2,26 @@ import { test, expect } from "@playwright/test";
 import { HeaderPage } from "../pages/Header.page";
 import { CurrentWeatherPage } from "../pages/CurrentWeather.page";
 
+let headerPage: HeaderPage;
+let currentWeatherPage: CurrentWeatherPage;
+
 test.beforeEach(async ({ page }) => {
-  const header = new HeaderPage(page);
-  await header.goToHomePage();
+  headerPage = new HeaderPage(page);
+  currentWeatherPage = new CurrentWeatherPage(page);
+  await headerPage.goToHomePage();
 });
 
 test.describe("Current Weather tests", () => {
-  test("Temperature unit toggle should switch between Celsius and Fahrenheit'", async ({
-    page,
-  }) => {
-    const currentWeather = new CurrentWeatherPage(page);
-
-    const temp = await currentWeather.getCelsiusTemperature();
+  test("Temperature unit toggle should switch between Celsius and Fahrenheit", async () => {
+    const temp = await currentWeatherPage.getCelsiusTemperature();
     expect(temp).toContain("°C");
 
-    await currentWeather.clickToggleTemperatureUnit();
-    const temperature = await currentWeather.getFahrenheitTemperature();
+    await currentWeatherPage.clickToggleTemperatureUnit();
+    const temperature = await currentWeatherPage.getFahrenheitTemperature();
     expect(temperature).toContain("°F");
 
-    await currentWeather.clickToggleTemperatureUnit();
-    const temperature2 = await currentWeather.getCelsiusTemperature();
+    await currentWeatherPage.clickToggleTemperatureUnit();
+    const temperature2 = await currentWeatherPage.getCelsiusTemperature();
     expect(temperature2).toContain("°C");
   });
 });

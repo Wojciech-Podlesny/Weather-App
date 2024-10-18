@@ -1,23 +1,19 @@
 import { Locator, Page } from "@playwright/test";
+import {HelperBase} from "../helpers/HelperBase";
 
-export class CurrentWeatherPage {
-  private readonly page: Page;
-  private readonly locationName: Locator;
+export class CurrentWeatherPage extends HelperBase {
   private readonly temperature: Locator;
-  private readonly condition: Locator;
-  private readonly dateAndTime: Locator;
   private readonly toggleUnitButton: Locator;
   private readonly celsiusTemp: Locator;
   private readonly fahrenheitTemp: Locator;
-  private readonly chartCanvas: Locator;
+
 
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     this.temperature = page.locator('[data-testid="temperature-id"]');
     this.toggleUnitButton = page.locator('[data-testid="button-id"]');
     this.fahrenheitTemp = page.locator('[data-testid="fahrenheit"]');
     this.celsiusTemp = page.locator('[data-testid="celcius-id"]');
-    this.chartCanvas = page.locator("canvas");
   }
 
   async getCelsiusTemperature(): Promise<string | null> {
@@ -33,14 +29,10 @@ export class CurrentWeatherPage {
     return this.toggleUnitButton.textContent();
   }
 
-  async isChartVisible() {
-    return await this.chartCanvas.isVisible();
+  async getTemperatureValue(): Promise<number | null> {
+    return this.getValue(this.temperature)
   }
 
-  async weatcherDetailsVisible() {
-    return this.temperature.isVisible()
-
-  }
 
 
 

@@ -1,37 +1,36 @@
 import { test, expect } from "@playwright/test";
 import { HeaderPage } from "../pages/Header.page";
 
-let header: HeaderPage;
+let headerPage: HeaderPage;
+
 test.beforeEach(async ({ page }) => {
-  header = new HeaderPage(page);
-  await header.goToHomePage();
+  headerPage = new HeaderPage(page);
+  await headerPage.goToHomePage();
 });
 
 test.describe("Weather Search Test Suite", () => {
   test("Should display the correct city name after a successful search", async () => {
-    await header.searchForLocation("Katowice");
-    const locationText = await header.getLocationText();
+    await headerPage.searchForLocation("Katowice");
+    const locationText = await headerPage.getLocationText();
     expect(locationText).toContain("Katowice");
   });
 
   test("Should show an error message when an invalid city name is entered", async () => {
-    await header.searchForLocation("Abrakadabra");
-    const errorMessage = await header.getErrorToastMessage();
-    await expect(errorMessage).toContain(
-      "Błąd podczas pobierania danych pogodowych"
-    );
+    await headerPage.searchForLocation("Abrakadabra");
+    const errorMessage = await headerPage.getErrorToastMessage();
+    expect(errorMessage).toContain("Error while downloading weather data")
   });
 
   test("Should retain the last search after refreshing the page", async ({
     page,
   }) => {
-    await header.searchForLocation("Warsaw");
+    await headerPage.searchForLocation("Warsaw");
     await page.reload();
   });
 
   test("Toastify error message appears when trying to search for an empty value in the input field", async () => {
-    await header.searchForLocation("");
-    const errorMessage = await header.getErrorToastMessage();
-    await expect(errorMessage).toContain("Location cannot be empty");
+    await headerPage.searchForLocation("");
+    const errorMessage = await headerPage.getErrorToastMessage();
+    expect(errorMessage).toContain("Location cannot be empty");
   });
 });

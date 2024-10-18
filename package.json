@@ -10,6 +10,7 @@
     "@types/node": "^16.18.97",
     "@types/react-toastify": "^4.1.0",
     "chart.js": "^4.4.3",
+    "dotenv": "^16.4.5",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.395.0",
     "moment": "^2.30.1",

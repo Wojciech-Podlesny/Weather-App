@@ -1,6 +1,8 @@
 import { test, expect} from '@playwright/test';
+import * as dotenv from 'dotenv';
+dotenv.config()
 
-const API_KEY = 'aa8c4e920fac4374875114019241405';; // Użyj odpowiedniego klucza API
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 test.describe('Weather API Tests', () => {
   
@@ -8,7 +10,6 @@ test.describe('Weather API Tests', () => {
     const location = 'London';
     const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${location}`);
     const data = await response.json();
-
     expect(response.status).toBe(200);
     expect(data.location.name).toBe(location);
     expect(data.current.temp_c).toBeDefined();

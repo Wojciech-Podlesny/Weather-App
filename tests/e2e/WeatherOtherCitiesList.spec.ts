@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { WeatherOtherCitiesListPage } from "../pages/WeatherOtherCities.page";
+import { WeatherOtherCitiesListPage } from "../pages/WeatherOtherCitiesList.page";
 
 test.describe('Weather Tests for Various Cities', () => {
   let weatherPage: WeatherOtherCitiesListPage;
