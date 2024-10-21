@@ -11,6 +11,7 @@ export class ConditionWeatherPage extends HelperBase {
   private readonly uvIndex: Locator;
   private readonly wind: Locator;
   private readonly sunrise: Locator;
+  private readonly sunset: Locator;
 
   constructor(page: Page) {
     super(page)
@@ -23,6 +24,7 @@ export class ConditionWeatherPage extends HelperBase {
     this.uvIndex = page.locator('[data-testid="uv-index-id"]');
     this.wind = page.locator('[data-testid="wind-id"]');
     this.sunrise = page.locator('[data-testid="sunrise-id"]');
+    this.sunset = page.locator('[data-testid="sunset-id"]');
   }
 
   async getHumidityValue(): Promise<number | null> {
@@ -60,5 +62,9 @@ export class ConditionWeatherPage extends HelperBase {
 
   async getSunriseValue(): Promise<number | null> {
     return this.parseNumber(this.sunrise);
+  }
+
+  async getSunsetValue(): Promise<number | null> {
+    return this.parseNumber(this.sunset);
   }
 }

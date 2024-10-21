@@ -11,8 +11,8 @@ test.beforeEach(async ({ page }) => {
   await headerPage.goToHomePage();
 });
 
-test.describe("Current Weather tests", () => {
-  test("Temperature unit toggle should switch between Celsius and Fahrenheit", async () => {
+test.describe("Unit Toggle (Celsius / Fahrenheit)", () => {
+  test("Toggles between Celsius and Fahrenheit for temperature units", async () => {
     const temp = await currentWeatherPage.getCelsiusTemperature();
     expect(temp).toContain("°C");
 

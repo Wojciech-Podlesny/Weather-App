@@ -18,7 +18,7 @@ const Wind = () => {
 
 			{weatherData && (
 				<div className='font-bold ml-6 mt-2'>
-					<p>{weatherData.wind} km/h</p>
+					<p data-testid="wind-id">{weatherData.wind} km/h</p>
 				</div>
 			)}
 		</div>

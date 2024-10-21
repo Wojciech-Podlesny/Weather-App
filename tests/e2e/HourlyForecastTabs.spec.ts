@@ -11,13 +11,13 @@ test.beforeEach(async ({ page }) => {
   await headerPage.goToHomePage();
 });
 
-test.describe("HourlyForecast Components tests", () => {
-  test("Should display Today tab as active by default", async ({ page }) => {
+test.describe("Hourly Forecast Tabs", () => {
+  test("Displays the Today tab as active by default", async ({ page }) => {
     const today = await hourlyForecastPage.isTabActive("Today");
     expect(today).toBe(true);
   });
 
-  test("Should switch tabs correctly", async ({ page }) => {;
+  test("Switches between forecast tabs correctly", async ({ page }) => {;
     await hourlyForecastPage.clickTomorrow();
     expect(await hourlyForecastPage.isTabActive("Tomorrow")).toBe(true);
     expect(await hourlyForecastPage.isTabActive("Today")).toBe(false);
@@ -28,7 +28,7 @@ test.describe("HourlyForecast Components tests", () => {
     expect(await hourlyForecastPage.isTabActive("Today")).toBe(false);
   });
 
-  test("Should show all tabs", async ({ page }) => {
+  test("Shows all available forecast tabs", async ({ page }) => {
     expect(await hourlyForecastPage.areAllTabsVisible()).toEqual([
       true,
       true,

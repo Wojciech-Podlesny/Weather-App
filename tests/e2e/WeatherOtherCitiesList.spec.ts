@@ -1,45 +1,46 @@
 import { test, expect } from "@playwright/test";
 import { WeatherOtherCitiesListPage } from "../pages/WeatherOtherCitiesList.page";
+import { HeaderPage } from "../pages/Header.page";
 
-test.describe('Weather Tests for Various Cities', () => {
-  let weatherPage: WeatherOtherCitiesListPage;
+let headerPage: HeaderPage;
+let weatherOtherCities: WeatherOtherCitiesListPage;
 
-  test.beforeEach(async ({ page }) => {
-    await page.goto('http://twojastrona.com'); // Change to the correct URL
-    weatherPage = new WeatherOtherCitiesListPage(page);
+test.beforeEach(async ({ page }) => {
+  headerPage = new HeaderPage(page);
+  weatherOtherCities = new WeatherOtherCitiesListPage(page);
+  await headerPage.goToHomePage();
+});
+
+test.describe('Weather forecast for different cities', () => {
+
+  test('Check if all cities are displayed on the page', async () => {
+    await headerPage.searchForLocation('Katowice');
+    await weatherOtherCities.weatherCityContainers.waitFor();
+    const areAllCitiesDisplayed = await weatherOtherCities.areAllCitiesDisplayed();
+    expect(areAllCitiesDisplayed).toBe(true);
   });
 
-  test('Check weather forecast for all cities in the array', async () => {
-    const weatherForCities = await weatherPage.getWeatherForAllCities();
-
-    // Verify that we have data for all cities in the array
-    expect(weatherForCities.length).toBe(weatherPage.cities.length);
-    console.log(`Fetched weather data for ${weatherForCities.length} cities.`);
+  test('Check weather forecast for all cities', async () => {
+    await headerPage.searchForLocation('Katowice');
+    const weatherForCities = await weatherOtherCities.getWeatherForAllCities();
+    expect(weatherForCities.length).toBe(weatherOtherCities.cities.length);
 
     weatherForCities.forEach(data => {
-      console.log(`City: ${data.city}, Temperature: ${data.temperature}`);
-      expect(data.city).toBeTruthy();  // Ensure the city name is not empty
-      expect(data.temperature).toMatch(/^\d+(\.\d+)?\s*°C$/); // Ensure temperature matches the expected format
+      expect(data.city).toBeTruthy();
+      expect(data.temperature).toMatch(/^\d+(\.\d+)?\s*°C$/);
     });
   });
 
-  test('Check weather forecast for a specific city (Warsaw)', async () => {
+  test('Check weather forecast for a specific city', async () => {
+    await headerPage.searchForLocation('Katowice');
     const cityName = 'Warsaw';
-    const temperature = await weatherPage.getTemperatureForCity(cityName);
-    console.log(`Temperature in ${cityName}: ${temperature}`);
-
-    // Check if the temperature is in the correct format
-    expect(temperature).toMatch(/^\d+(\.\d+)?\s*°C$/); // Ensure temperature matches the expected format
+    const temperature = await weatherOtherCities.getTemperatureForCity(cityName);
+    expect(temperature).toMatch(/^\d+(\.\d+)?\s*°C$/);
   });
 
-  // Additional test cases can be added here for more coverage
-  test('Check temperatures for additional cities', async () => {
-    const additionalCities = ['Katowice', 'Rzeszów', 'Wroclaw', 'Gdansk', 'Lublin', 'Bydgoszcz'];
-
-    for (const cityName of additionalCities) {
-      const temperature = await weatherPage.getTemperatureForCity(cityName);
-      console.log(`Temperature in ${cityName}: ${temperature}`);
-      expect(temperature).toMatch(/^\d+(\.\d+)?\s*°C$/); // Ensure temperature matches the expected format
-    }
+  test('Check error handling for non-existent city', async () => {
+    await headerPage.searchForLocation('Rybnik');
+    const temperature = await weatherOtherCities.getTemperatureForCity('Rybnik');
+    expect(temperature).toBeNull();
   });
 });

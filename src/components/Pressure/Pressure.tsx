@@ -19,7 +19,7 @@ const Pressure = () => {
 
 			{weatherData && (
 				<div className='font-bold ml-6 mt-2'>
-					<p>{convertPressure(Math.round(weatherData.pressure))} pa</p>
+					<p data-testid="pressure-id">{convertPressure(Math.round(weatherData.pressure))} pa</p>
 				</div>
 			)}
 		</div>

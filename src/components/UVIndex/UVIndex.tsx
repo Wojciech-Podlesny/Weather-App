@@ -17,7 +17,7 @@ const UVIndex = () => {
 			</div>
 			{weatherData && (
 				 <div className='font-bold ml-6 mt-2'>
-				 <p>{weatherData.uvIndex}</p>
+				 <p data-testid="uv-index-id">{weatherData.uvIndex}</p>
 			 </div>
 			)}
 		</div>

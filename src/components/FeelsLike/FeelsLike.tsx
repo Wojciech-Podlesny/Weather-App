@@ -17,7 +17,7 @@ const FeelsLike = () => {
             </div>
             {weatherData && (
                 <div className='font-bold ml-6 mt-2'>
-                    <p>{convertTemperature(weatherData.feelsLike,celcius).toFixed(1)}  {celcius ? '°C' : '°F'}</p>
+                    <p data-testid="feels-like-id">{convertTemperature(weatherData.feelsLike,celcius).toFixed(1)}  {celcius ? '°C' : '°F'}</p>
                 </div>
             )}
         </div>

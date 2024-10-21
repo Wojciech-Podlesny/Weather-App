@@ -21,11 +21,11 @@ const Sunrise = () => {
 				<div className='flex flex-row lg:flex-col justify-evenly font-bold ml-4 mt-2'>
 					<div className='flex flex-row gap-2'>
 						<LuSunset size={18} />
-						<h1>{weatherData.sunset} </h1>
+						<h1 data-testid="sunset-id">{weatherData.sunset} </h1>
 					</div>
 					<div className='flex flex-row gap-2'>
 						<LuSunrise size={18} />
-						<h1>{weatherData.sunrise} </h1>
+						<h1 data-testid="sunrise-id">{weatherData.sunrise} </h1>
 					</div>
 				</div>
 			)}

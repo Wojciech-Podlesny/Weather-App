@@ -11,28 +11,28 @@ test.beforeEach(async ({ page }) => {
   await headerPage.goToHomePage();
 });
 
-test.describe("Sidebar Components tests", () => {
-  test("Should navigate to Dashboard on click", async ({ page }) => {
+test.describe("Sidebar Information", () => {
+  test("Navigates to Dashboard upon clicking", async ({ page }) => {
     await sidebarPage.clickDashboard();
     await sidebarPage.checkUrl("/");
   });
 
-  test("Should navigate to Maps on click", async () => {
+  test("Navigates to Maps upon clicking", async () => {
     await sidebarPage.clickMaps();
     await sidebarPage.checkUrl("/maps");
   });
 
-  test("Should navigate to SavedLocation on click", async () => {
+  test("Navigates to Saved Locations upon clicking", async () => {
     await sidebarPage.clickSavedLocation();
     await sidebarPage.checkUrl("/savedLocation");
   });
 
-  test("Should navigate to Settings on click", async () => {
+  test("Navigates to Settings upon clicking", async () => {
     await sidebarPage.clickSettings();
     await sidebarPage.checkUrl("/settings");
   });
 
-  test("Sidebar should be visible and all links should be visible", async () => {
+  test("Sidebar and all links should be visible", async () => {
     expect(await sidebarPage.isSidebarVisible()).toBe(true);
     const linksVisibility = await sidebarPage.areAllLinksVisible();
     for (const isVisible of linksVisibility) {

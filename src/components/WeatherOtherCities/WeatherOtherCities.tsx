@@ -54,25 +54,25 @@ const WeatherOtherCities = () => {
         <h1 className="text-xl font-semibold">Weather Other Cities</h1>
       </div>
       <ScrollableList>
-        <div data-testid="cities" className="flex justify-center mb-4">
+        <ul data-testid="cities-container" className="flex justify-center mb-4">
           {weatherForCities.map((data, index) => (
-            <div
+            <li
               className={`py-4 w-40 sm:w-48 lg:w-56 rounded-lg `}
               key={index}
             >
-              <h2 className="font-semibold  mb-2 text-center">
+              <h2 data-testid="location-city" className="font-semibold  mb-2 text-center">
                 {data.location.name}
               </h2>
               <div className="flex items-center justify-center mb-2">
                 <WeatherIcon conditionCode={weatherData?.code}></WeatherIcon>
               </div>
-              <h2 className="text-center">
+              <h2 data-testid="temp" className="text-center">
                 {convertTemperature(data.current.temp_c, celcius).toFixed(1)}{" "}
                 {celcius ? "°C" : "°F"}
               </h2>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </ScrollableList>
     </div>
   );

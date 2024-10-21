@@ -18,7 +18,7 @@ export const Visibility = () => {
       </div>
       {weatherData && (
         <div className="font-bold ml-6 mt-2">
-          <p>{weatherData.visibility} km</p>
+          <p data-testid="visibility-id">{weatherData.visibility} km</p>
         </div>
       )}
     </div>

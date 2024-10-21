@@ -13,27 +13,27 @@ test.beforeEach(async ({ page }) => {
 
 test.describe("Footer", () => {
 
-  test("Check the text in the footer", async ({page}) => {
+  test("Verifies the text displayed in the footer", async () => {
     const footerText = await footerPage.getFooterText();
     expect(footerText).toContain("© 2024 Wojciech Podleśny");
   });
 
-  test("Check the visibility of the GitHub icon", async ({page}) => {
+  test("Verifies the visibility of the GitHub icon", async () => {
     const isGitHubVisible = await footerPage.isGitHubLinkVisible();
     expect(isGitHubVisible).toBeTruthy();
   });
 
-  test("Check the URL of the GitHub link", async ({page}) => {
+  test("Validates the URL of the GitHub link", async () => {
     const gitHubUrl = await footerPage.getGitHubUrl();
     expect(gitHubUrl).toBe("https://github.com/wojciech-podlesny");
   });
 
-  test("Check the visibility of the Linkedin icon", async ({page}) => {
+  test("Verifies the visibility of the Linkedin icon", async () => {
     const isLinkedInVisible = await footerPage.isLinkedInLinkVisible();
     expect(isLinkedInVisible).toBeTruthy();
   });
 
-  test("Check the URL of the LinkedIn link", async ({page}) => {
+  test("Validates the URL of the Linkedin link", async () => {
     const linkedInUrl = await footerPage.getLinkedInUrl();
     expect(linkedInUrl).toBe("https://www.linkedin.com/in/wojciech-podlesny");
   });
